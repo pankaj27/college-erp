@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Api\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,13 +21,13 @@ class LoginController extends Controller
         if(!$user || !Hash::check($request->password, $user->password)){
 
             throw ValidationException::withMessages([
-                'email' => ['The credentials you entered are incorrect44']
+                'email' => ['The credentials you entered are incorrect']
             ]);
         }
 
         return response()->json([
             'user' => $user,
-            'token' => $user->createToken('laravel_Api_token')->planTextToken
+            'token' => $user->createToken('laravel_Api_token')->plainTextToken
         ]);
 
     }
