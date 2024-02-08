@@ -21,7 +21,7 @@ class LoginController extends Controller
         if(!$user || !Hash::check($request->password, $user->password)){
 
             throw ValidationException::withMessages([
-                'email' => ['The credentials you entered are incorrect']
+                'email' => ['The credentials you entered are incorrect44']
             ]);
         }
 
